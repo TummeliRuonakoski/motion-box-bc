@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layout/layout.css">
+    <title>Motions</title>
+</head>
+<body>
+    <header th:replace="header :: header"></header>
+    <h1>Motions</h1>
+    <ul>
+        <li th:each="maker : ${makers}">
+            <a th:href="@{/makers/{id}(id=${maker.id})}">
+                <span th:text="${maker.firstname + ' ' + maker.lastname}">firstname</span>
+            </a></li>
+    </ul>
+
+    <h1>Add a person</h1>
+
+    <form th:action="@{/motions}" method="POST">
+        <p>Firstname: <input firstname="subject"></input></p>
+        <p>Lastname: <input lastname="subject"></input></p>
+        <p>Date: <input type="date" name="examDate"></input></p>
+        <input type="submit" value="Add"></input>
+    </form>
+</body>
+</html>
