@@ -15,29 +15,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MotionController {
 
-    @Autowired
+   @Autowired
     private MotionService mots;
+
+    @Autowired
+    private MakerService maks;
+
 
     
     @GetMapping("/motions")
-    public String getAll(Model model){
+    public String listMotions(Model model){
         model.addAttribute("motions", mots.listAll());
+        model.addAttribute("makers", maks.listAll());
         return "motions";
     }
 
-    @GetMapping("motions/{id}")
-    public String getOne(Model model, @PathVariable Long id){
-        
+  /*  @GetMapping("motions/{id}")
+    public String showMotion(Model model, @PathVariable Long motionId){
+        model.addAttribute("motion", mots.findById(motionId));
         return "motion";
-    }
+    }*/
 
     @PostMapping("/motions")
-    public String addMotion(@RequestParam String name, @RequestParam String description, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
-        mots.add(name, description, date);
+    public String addMotion(@RequestParam String motionname, @RequestParam String description){
+        mots.add(motionname, description, LocalDate.now());
+        System.out.println("!!!!!!!!!!!!!!!!!! " + LocalDate.now() + " !!!!!!!!!!!!!!!!");
+        System.out.println("!!!!!!!!!!!!!!!!!! " + motionname + " " + description + " " + LocalDate.now() + " !!!!!!!!!!!!!!!!");
         return "redirect:/motions";
     }
 
-   /* @DeleteMapping("/motions/{motionId}")
+    @PostMapping("/motions/{motionId}/makers")
+    public String addMakerToMotion(@PathVariable Long motionId, @RequestParam Long makerId){
+        mots.addMakerToMotion(motionId, makerId);
+        return "redirect:/motions";
+    }
+
+
+  /* @DeleteMapping("/motions/{motionId}")
     public String remove(@PathVariable(value = "motionId") Long motionId){
         mots.remove(motionId);
         return "redirect:/motions";
@@ -46,7 +60,4 @@ public class MotionController {
 
         /*Sähköisessä aloitelaatikossa käsitellään käyttäjien tekemiä aloitteita. Käyttäjällä voi olla yksi tai useampi aloite ja aloite liittyy vain yhteen käyttäjään. Kyseessä on siis yhden suhde moneen yhteys (OneToMany)Sähköisen aloitelaatikonkäsitteet ja niiden väliset yhteydet on kuvattu allaolevassaluokkakaaviossa.HUOM! Aloite-käsitteen pvm on aloitteen teko päivämäärä.Vaatimukset sovellukselle:Tietokantaan on voitava lisätä uusia tekjöiden tekemiä aloitteita.Tietokannassa olevia aloitteita ja niiden tekijöitä on myös pystyttävä listaamaan.Tiedot näytetään taulukkomuodossa.Sovelluksella tulee olla kotisivu, jossa on päävalikko.Jokaisella sivulta tulee olla paluulinkki kotisivulle.
  */
-
-
-    
 }

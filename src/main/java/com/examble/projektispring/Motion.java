@@ -4,9 +4,12 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 
@@ -21,6 +24,7 @@ public class Motion extends AbstractPersistable<Long>{
     @Column
     private String description;
     @Column
+    @CreatedDate
     private LocalDate date;
     @ManyToOne
     private Maker maker;

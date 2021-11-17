@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Maker</title>
+    </head>
+    <body>
+        <h1 th:text="${maker.firstname + ' ' + maker.lastname}">Firstname and lastname</h1>
+        <p th:text="${maker.email}">email</p>
+
+        <h2>Motions</h2>
+
+        <!-- <section th:each="motions: ${maker.motions}">
+            <h3 th:text="${motion.motionname}">motionname</h3>
+            <p th:utext="${motion.description}">description</p>
+            <p th:utext="${motion.date}">date</p>
+        </section> -->
+
+        <h2>Testiä</h2>
+
+
+    </body>
+</html>
