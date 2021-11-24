@@ -34,19 +34,4 @@ public class MakerService {
     public List<Motion> listAllMakersMotions(){
         return motr.findAll();
     }
-
-    /*
-     * @Transactional public void remove(Long makerId) { Maker maker =
-     * makr.getById(makerId); for(Motion motion : maker.getMotions()){
-     * motion.getMakers().remove(maker); } makr.deleteById(makerId);
-     * 
-     * }
-     */
-
-    /*
-     * @Transactional public void addMakertoMotion(Long makerId, Long motionId){
-     * motr.getById(motionId).getMaker().add(); makr.getById(makerId)); }
-     */
-
-    
 }

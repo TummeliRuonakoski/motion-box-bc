@@ -2,16 +2,15 @@
     <head>
         <meta charset="UTF-8" />
         <title>Header</title>
-        <link rel="stylesheet" href="./layout/layout.css">
-    </head>
+        <link rel="stylesheet" href="layout/reset.css">
+        <link rel="stylesheet" href="layout/layout.css">
+        </head>
     <body>
 
         <header th:fragment="header">
             <nav class="nav"></nav>
             <ul>
                 <li><a th:href="@{/index}">home</a></li>
-                <li><a th:href="@{/motions}">motions</a></li>
-                <li><a th:href="@{/makers}">makers</a></li>
             </ul>
         </header>
     </body>

@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="layout/reset.css">
+    <link rel="stylesheet" href="layout/layout.css">
+    <title>Motion</title>
 </head>
 <body>
     <header th:replace="header :: header"></header>
 
-    <h1>Motion</h1>
     <h1 th:text="${motion.motionname}">motionname</h1>
 
 
     <p>Created: <span th:text="${motion.date}">date</span></p>
-    <!-- <p>Maker: <span th:text="{motion.makers.email}">email</span></p> -->
-    <!-- <p><a th:href="@{/makers/{id}(id=${maker.id})}">email</a></p> -->
+    <p>Maker: <a th:href="@{/makers/{id}(id=${motion.maker.id})}"><span th:text="${motion.maker.email}">email</span></a></p>
     <h2>description</h2>
     <p th:text="${motion.description}">description</p>
-
 
 </body>
 </html>

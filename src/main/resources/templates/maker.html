@@ -1,6 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8" />
+        <link rel="stylesheet" href="layout/reset.css">
+        <link rel="stylesheet" href="layout/layout.css">
         <title>Maker</title>
     </head>
     <body>
@@ -18,11 +20,7 @@
                <input type="submit" value="Add"></input>
         </div>   
 
-
         <h2>Motions</h2>
-
-
-        
           <table>
             <thead>
                 <tr>
@@ -37,10 +35,7 @@
                      <td th:text="${motion.motionname}">motionname></td>
                      <td th:text="${motion.description}">description</td>
                  </tr>
-    
             </tbody>
         </table>   
-    
-
     </body>
 </html>
