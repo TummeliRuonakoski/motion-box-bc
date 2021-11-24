@@ -20,11 +20,13 @@ public class MotionService {
         return motr.findAll();
     }
 
-    public void add(String motionname, String description, LocalDate date){
+    public void add(String motionname, String description, LocalDate date, Long makerId){
         Motion motion = new Motion();
         motion.setMotionname(motionname);
         motion.setDescription(description);
         motion.setDate(date);
+        Maker maker = makr.getById(makerId);
+        motion.setMaker(maker);
         motr.save(motion);
     }
 

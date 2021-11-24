@@ -3,7 +3,6 @@ package com.examble.projektispring;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,27 +21,22 @@ public class MotionController {
     private MakerService maks;
 
 
-    
-    @GetMapping("/motions")
-    public String listMotions(Model model){
-        model.addAttribute("motions", mots.listAll());
-        model.addAttribute("makers", maks.listAll());
-        return "motions";
-    }
 
-  /*  @GetMapping("motions/{id}")
+
+   @GetMapping("motions/{motionId}")
     public String showMotion(Model model, @PathVariable Long motionId){
         model.addAttribute("motion", mots.findById(motionId));
+        model.addAttribute("maker", maks.listAll());
         return "motion";
-    }*/
+    }
 
-    @PostMapping("/motions")
+  /*  @PostMapping("/motions")
     public String addMotion(@RequestParam String motionname, @RequestParam String description){
         mots.add(motionname, description, LocalDate.now());
         System.out.println("!!!!!!!!!!!!!!!!!! " + LocalDate.now() + " !!!!!!!!!!!!!!!!");
         System.out.println("!!!!!!!!!!!!!!!!!! " + motionname + " " + description + " " + LocalDate.now() + " !!!!!!!!!!!!!!!!");
         return "redirect:/motions";
-    }
+    }*/
 
     @PostMapping("/motions/{motionId}/makers")
     public String addMakerToMotion(@PathVariable Long motionId, @RequestParam Long makerId){

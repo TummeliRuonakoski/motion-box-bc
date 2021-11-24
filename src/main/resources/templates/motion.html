@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <header th:replace="header :: header"></header>
+
+    <h1>Motion</h1>
+    <h1 th:text="${motion.motionname}">motionname</h1>
+
+
+    <p>Created: <span th:text="${motion.date}">date</span></p>
+    <!-- <p>Maker: <span th:text="{motion.makers.email}">email</span></p> -->
+    <!-- <p><a th:href="@{/makers/{id}(id=${maker.id})}">email</a></p> -->
+    <h2>description</h2>
+    <p th:text="${motion.description}">description</p>
+
+
 </body>
 </html>

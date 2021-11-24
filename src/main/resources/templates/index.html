@@ -11,10 +11,9 @@
     <header th:replace="header :: header"></header>
     <h1>Makers</h1>
     <ul>
-        <li th:each="maker : ${makers}"> <!--Käydään lista läpi -> tulostetaan lista-->
-            <a th:href="@{/makers/{id}(id=${maker.id})}"> <!--Tulostettu lista sisältää linkit, jotka vievät jokaisen tekijän omalle sivulle -->
-                <span th:text="${maker.firstname + ' ' + maker.lastname + ' ' + maker.email}">firstname, lastname and email</span> <!--Listassa on etunini, sukunimi ja email.-->
-            </a></li>
+        <li th:each="maker : ${makers}"> 
+            <a th:href="@{/makers/{id}(id=${maker.id})}">
+                <span th:text="${maker.firstname + ' ' + maker.lastname + ' ' + maker.email}">firstname, lastname and email</span> </a></li>
     </ul>
 
     <h1>Add a person</h1>
@@ -27,6 +26,26 @@
     </form>
 
 
+    <h1>motions</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>Motion's name</th>
+                 <th>Maker's email</th>
+                 <th>More info</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="motion : ${motions}">
+                <td th:text="${motion.date}">date</td>
+                <td th:text="${motion.motionname}">motionname></td>
+                <td th:text="${motion.maker.email}">maker</td>
+                <td><a th:href="@{/motions/{id}(id=${motion.id})}">open</a></td>
+            </tr>
+   </tbody>
+    </table>
 
 </body>
 </html>

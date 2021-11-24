@@ -1,5 +1,7 @@
 package com.examble.projektispring;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,25 +21,22 @@ public class MakerController {
     @Autowired
     MotionService mots;
 
-    @GetMapping("/index")
-    public String listMakers(Model model){
-        model.addAttribute("makers", maks.listAll());
-        return "index";
-    }
-
-    @PostMapping("/index")
-    public String addMaker(@RequestParam String firstname, String lastname, String email){
-        maks.add(firstname, lastname, email);
-        return "redirect:/index";
-    }
+   
 
      @GetMapping("/makers/{makerId}")
     public String showMaker(Model model, @PathVariable(value = "makerId") Long makerId){
         model.addAttribute("maker", maks.findById(makerId));
-        model.addAttribute("motions", maks.listAllMakersMotions());
+        model.addAttribute("motions", mots.listAll());
         return "maker";
     }
 
+    @PostMapping("/makers/{makerId}")
+    public String addMotion(@RequestParam String motionname, @RequestParam String description, @PathVariable Long makerId){
+        mots.add(motionname, description, LocalDate.now(), makerId);
+        System.out.println("!!!!!!!!!!!!!!!!!! " + LocalDate.now() + " !!!!!!!!!!!!!!!!");
+        System.out.println("!!!!!!!!!!!!!!!!!! " + motionname + " " + description + " " + LocalDate.now() + " "+  makerId + " !!!!!!!!!!!!!!!!");
+        return "redirect:/maker";
+    }
    /* @DeleteMapping("/makers/{makerId}")
     public String removeMaker(@PathVariable(value = "makerId") Long makerId){
         return "redirect:/makers";
