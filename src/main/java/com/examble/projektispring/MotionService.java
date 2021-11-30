@@ -40,18 +40,4 @@ public class MotionService {
     public Motion findById(Long motionId) {
         return motr.getById(motionId);
     }
-/*
-    @Transactional
-    public void remove(Long motionId){
-        Motion motion = motr.getById(motionId);
-        for(Maker maker : motion.getMakers()){
-            maker.getMotions().remove(motion);
-        }
-        motr.delete(motion);
-    }*/
-
-
-                    /*Sähköisessä aloitelaatikossa käsitellään käyttäjien tekemiä aloitteita. Käyttäjällä voi olla yksi tai useampi aloite ja aloite liittyy vain yhteen käyttäjään. Kyseessä on siis yhden suhde moneen yhteys (OneToMany)Sähköisen aloitelaatikonkäsitteet ja niiden väliset yhteydet on kuvattu allaolevassaluokkakaaviossa.HUOM! Aloite-käsitteen pvm on aloitteen teko päivämäärä.Vaatimukset sovellukselle:Tietokantaan on voitava lisätä uusia tekjöiden tekemiä aloitteita.Tietokannassa olevia aloitteita ja niiden tekijöitä on myös pystyttävä listaamaan.Tiedot näytetään taulukkomuodossa.Sovelluksella tulee olla kotisivu, jossa on päävalikko.Jokaisella sivulta tulee olla paluulinkki kotisivulle. */
-
-    
 }

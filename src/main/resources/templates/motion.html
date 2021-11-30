@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="layout/reset.css">
-    <link rel="stylesheet" href="layout/layout.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <link th:href="@{/css/layout.css}" rel="stylesheet" />
     <title>Motion</title>
-</head>
-<body>
+  </head>
+  <body>
     <header th:replace="header :: header"></header>
 
     <h1 th:text="${motion.motionname}">motionname</h1>
 
-
     <p>Created: <span th:text="${motion.date}">date</span></p>
-    <p>Maker: <a th:href="@{/makers/{id}(id=${motion.maker.id})}"><span th:text="${motion.maker.email}">email</span></a></p>
+    <p>
+      Maker:
+      <a th:href="@{/makers/{id}(id=${motion.maker.id})}"
+        ><span th:text="${motion.maker.email}">email</span></a
+      >
+    </p>
     <h2>description</h2>
     <p th:text="${motion.description}">description</p>
-
-</body>
+  </body>
 </html>

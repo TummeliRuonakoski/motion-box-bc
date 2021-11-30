@@ -1,17 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Header</title>
-        <link rel="stylesheet" href="layout/reset.css">
-        <link rel="stylesheet" href="layout/layout.css">
-        </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Header</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <link th:href="@{/css/layout.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <header th:fragment="header">
+      <nav class="nav"></nav>
+      <ul>
+        <li><a th:href="@{/index}">HOME</a></li>
+      </ul>
 
-        <header th:fragment="header">
-            <nav class="nav"></nav>
-            <ul>
-                <li><a th:href="@{/index}">home</a></li>
-            </ul>
-        </header>
-    </body>
+      <hr/>
+    </header>
+  </body>
 </html>

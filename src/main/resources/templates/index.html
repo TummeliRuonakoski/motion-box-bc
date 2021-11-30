@@ -4,49 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="layout/reset.css">
-    <link rel="stylesheet" href="layout/layout.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link th:href="@{/css/layout.css}" rel="stylesheet"/>
     <title>Makers and Motions</title>
 </head>
+
 <body>
     <header th:replace="header :: header"></header>
-    <h1>Makers</h1>
-    <ul>
-        <li th:each="maker : ${makers}"> 
-            <a th:href="@{/makers/{id}(id=${maker.id})}">
-                <span th:text="${maker.firstname + ' ' + maker.lastname + ' ' + maker.email}">firstname, lastname and email</span> </a></li>
-    </ul>
-
-    <h1>Add a person</h1>
-
-    <form th:action="@{/index}" method="POST">
-        <p>Firstname: <input name="firstname"></input></p>
-        <p>Lastname: <input name="lastname"></input></p>
-        <p>Email: <input name="email"></input></p>
-        <input type="submit" value="Add"></input>
-    </form>
-
-
-    <h1>motions</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Created</th>
-                <th>Motion's name</th>
-                 <th>Maker's email</th>
-                 <th>More info</th> 
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="motion : ${motions}">
-                <td th:text="${motion.date}">date</td>
-                <td th:text="${motion.motionname}">motionname></td>
-                <td th:text="${motion.maker.email}">maker</td>
-                <td><a th:href="@{/motions/{id}(id=${motion.id})}">open</a></td>
-            </tr>
-   </tbody>
-    </table>
+    <section class="back">
+        <section class="makers">
+            <h1>Makers</h1>
+            <ul>
+                <li th:each="maker : ${makers}">
+                    <a th:href="@{/makers/{id}(id=${maker.id})}">
+                        <span th:text="${maker.firstname + ' ' + maker.lastname + ' ' + maker.email}">firstname, lastname and email</span> </a></li>
+            </ul>
+        </section>
+        <section class="new">
+            <h1>Add a person</h1>
+            <form th:action="@{/index}" method="POST">
+                <p><input name="firstname" placeholder="firstname"></input></p>
+                <p><input name="lastname" placeholder="lastname"></input></p>
+                <p><input name="email" placeholder="email"></input></p>
+                <input class="add" type="submit" value="Add"></input>
+            </form>
+        </section>
+        <section class="motions">
+            <h1>motions</h1>
+            <table>
+                <thead>
+                    <tr class="thead">
+                        <th>Created</th>
+                        <th>Motion's name</th>
+                        <th>Maker's email</th>
+                        <th>More info</th>
+                    </tr>
+                </thead>
+                <tbody class="odd">
+                    <tr th:each="motion : ${motions}">
+                        <td th:text="${motion.date}">date</td>
+                        <td th:text="${motion.motionname}">motionname></td>
+                        <td th:text="${motion.maker.email}">maker</td>
+                        <td><a th:href="@{/motions/{id}(id=${motion.id})}">open</a></td>
+                    </tr>
+               </tbody>
+            </table>
+        </section>
+    </section>
 
 </body>
 </html>

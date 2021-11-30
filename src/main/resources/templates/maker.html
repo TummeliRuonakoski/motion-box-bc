@@ -1,41 +1,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="layout/reset.css">
-        <link rel="stylesheet" href="layout/layout.css">
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link th:href="@{/css/layout.css}" rel="stylesheet"/>
         <title>Maker</title>
     </head>
     <body>
-        <header th:replace="header :: header"></header>
-
-        <h1 th:text="${maker.firstname + ' ' + maker.lastname}">Firstname and lastname</h1>
-        <p th:text="${maker.email}">email</p>
-
-        <h2>Create motion</h2>
-
-        <div>
-            <form th:action="@{/makers/{makerId}(makerId=${maker.id})}" method="POST">
-               <p>Motionname: <input name="motionname"></input></p>
-               <p>Description: <input name="description"></input></p>
-               <input type="submit" value="Add"></input>
-        </div>   
-
-        <h2>Motions</h2>
-          <table>
-            <thead>
-                <tr>
-                    <th>Created</th>
-                    <th>Motion's name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-             <tbody>
-                 <tr th:each="motion : ${maker.motions}">
-                     <td th:text="${motion.date}">date</td>
-                     <td th:text="${motion.motionname}">motionname></td>
-                     <td th:text="${motion.description}">description</td>
-                 </tr>
-            </tbody>
-        </table>   
+            <header th:replace="header :: header"></header>
+            <section class="back">
+                <section class="info">
+                <h1 th:text="${maker.firstname + ' ' + maker.lastname}">Firstname and lastname</h1>
+                <p th:text="${maker.email}">email</p>
+            </section>
+                
+            <section class="new">
+                <h2>Create motion</h2>
+                <div>
+                    <form th:action="@{/makers/{makerId}(makerId=${maker.id})}" method="POST">
+                    <p><input name="motionname" placeholder="Motionname"></input></p>
+                    <p><input name="description" placeholder="Description"></input></p>
+                    <input class="add" type="submit" value="Add"></input>
+                </div>
+            </section>
+                
+            <section class="motions">
+                <h2>Motions</h2>
+                  <table>
+                    <thead>
+                        <tr class="thead">
+                            <th>Created</th>
+                            <th>Motion's name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="odd">
+                         <tr th:each="motion : ${maker.motions}">
+                             <td th:text="${motion.date}">date</td>
+                             <td th:text="${motion.motionname}">motionname></td>
+                             <td th:text="${motion.description}">description</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
     </body>
 </html>
