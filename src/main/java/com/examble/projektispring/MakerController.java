@@ -30,6 +30,6 @@ public class MakerController {
     @PostMapping("/makers/{makerId}")
     public String addMotion(@RequestParam String motionname, @RequestParam String description, @PathVariable Long makerId){
         mots.add(motionname, description, LocalDate.now(), makerId);
-        return "redirect:/maker/";
+        return "redirect:/index";
     }
 }
