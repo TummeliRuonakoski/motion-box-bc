@@ -1,0 +1,82 @@
+html{
+   font-size: 62.5%; 
+}
+
+body{
+    margin: 2rem;
+    padding: 1rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: midnightblue;
+    text-decoration: underline;
+}
+
+h2{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: midnightblue;
+    text-decoration: underline;
+  
+}
+
+p, li, td{
+    font-size: 1.8rem;
+}
+
+a{
+    color: midnightblue;
+}
+
+table{
+    width: 60%;
+}
+
+.back{
+    background-color:rgb(253, 214, 221);
+    border: solid midnightblue 2px;
+    border-radius: 5rem;
+}
+
+.new >*, .makers >*, .motions >*, .back >*, .info >*{
+    margin: 1rem;
+}
+
+.back >*{
+    padding: 1rem;
+}
+
+.new form p input{
+    padding: 5px;
+    margin-bottom: 1rem;
+    border-radius: 5rem;
+    border-color: midnightblue;
+    background-color: whitesmoke;
+}
+
+.add{
+    background-color: midnightblue;
+    color: whitesmoke;
+    border-radius: 5rem;
+    text-transform: uppercase;
+}
+
+
+.thead{
+    text-transform: lowercase;
+    text-align: left;
+    background-color:midnightblue;
+    color:rgb(253, 214, 221);
+    font-size: 2.2rem;
+}
+
+.thead th{
+    padding: 6px 0px 6px 0px;
+}
+
+.odd tr:nth-child(odd){
+    background-color: whitesmoke;
+  }
